@@ -1,7 +1,7 @@
 /* .phone {
 } */
 :root {
-  --dial-width: 57%;
+  --dial-width: 60%;
   --path-width: calc(var(--dial-width) / 2);
   --socket-size: calc(var(--dial-width) / 12.5);
   --socket-offset-dist: 0%;

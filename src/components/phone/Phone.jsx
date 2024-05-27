@@ -15,10 +15,6 @@ export default function Phone() {
     handleMouseMove,
   } = useContext(PhoneContext)
 
-  
-
-
-
   return (
     <div className="phone--content">
       <img
@@ -149,44 +145,39 @@ export default function Phone() {
               </filter>
             </defs>
           </svg>
-          {sockets.map((socket, i) => {
-            return (
-          
-              <div
-                className="dial--socket"
-                key={i + 1}
-                style={{
-                  '--socket-offset-dist': `${
-                    (100 / (sockets.length + socketSpacer)) * i + dialOffsetDist
-                  }%`,
-                }}
-              >
-                {socket === '*' ? asterisk : socket}
-              </div>
-            )
-          })}
+          {sockets.map((socket, i) => (
+            <div
+              className="dial--socket"
+              key={i + 1}
+              style={{
+                '--socket-offset-dist': `${
+                  (100 / (sockets.length + socketSpacer)) * i + dialOffsetDist
+                }%`,
+              }}
+            >
+              {socket === '*' ? asterisk : socket}
+            </div>
+          ))}
         </div>
         <div
           className="dial--controller"
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
         >
-          {sockets.map((socket, i) => {
-            return (
-              <button
-                onMouseLeave={handleMouseLeave}
-                onMouseMove={handleMouseMove}
-                className="dial--controller-socket"
-                key={i + 1}
-                value={socket}
-                style={{
-                  '--socket-offset-dist': `${
-                    (100 / (sockets.length + socketSpacer)) * i + dialOffsetDist
-                  }%`,
-                }}
-              ></button>
-            )
-          })}
+          {sockets.map((socket, i) => (
+            <button
+              onMouseLeave={handleMouseLeave}
+              onMouseMove={handleMouseMove}
+              className="dial--controller-socket"
+              key={i + 1}
+              value={socket}
+              style={{
+                '--socket-offset-dist': `${
+                  (100 / (sockets.length + socketSpacer)) * i + dialOffsetDist
+                }%`,
+              }}
+            ></button>
+          ))}
         </div>
         <div className="stopper"></div>
       </div>
