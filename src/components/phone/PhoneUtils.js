@@ -51,8 +51,7 @@ const verifySdLongDistanceCall = (str) => {
 
 const sdCountryCode = (str) => {
   return (
-    (islongDistanceCodeId(str) &&
-      replaceLongDistanceChar(str.slice(sn, sndl))) ||
+    (islongDistanceCodeId(str) && replaceLongDistanceChar(str.slice(sn, sndl))) ||
     (isDoubleDigitCodeId(str) && replaceLongDistanceChar(str.slice(dn, dndl)))
   )
 }
@@ -60,10 +59,8 @@ const sdCountryCode = (str) => {
 const sdFullNumber = (str) => {
   if (islongDistanceCodeId(str)) {
     return (
-      (isSingleDigitCodeId(str) &&
-        replaceLongDistanceChar(str.slice(sn, -editCodeL))) ||
-      (isDoubleDigitCodeId(str) &&
-        replaceLongDistanceChar(str.slice(dn, -editCodeL)))
+      (isSingleDigitCodeId(str) && replaceLongDistanceChar(str.slice(sn, -editCodeL))) ||
+      (isDoubleDigitCodeId(str) && replaceLongDistanceChar(str.slice(dn, -editCodeL)))
     )
   }
 
@@ -114,15 +111,13 @@ export const islongDistanceCodeId = (str) => {
   // validate for single digit edit
   if (str.length >= singleDigitTotalL && isSingleDigitCodeId(str)) {
     return (
-      str.slice(sn, sn + longDistNumL) ===
-      (codeId.longDistNum || codeId.longDistChar)
+      str.slice(sn, sn + longDistNumL) === (codeId.longDistNum || codeId.longDistChar)
     )
   }
   // validate for double digit edit
   if (str.length >= doubleDigitTotalL && isDoubleDigitCodeId(str)) {
     return (
-      str.slice(dn, dn + longDistNumL) ===
-      (codeId.longDistNum || codeId.longDistChar)
+      str.slice(dn, dn + longDistNumL) === (codeId.longDistNum || codeId.longDistChar)
     )
   }
   return false

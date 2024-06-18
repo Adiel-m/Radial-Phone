@@ -126,9 +126,7 @@ export const PhoneProvider = ({ children }) => {
     resetDialInput()
   }
   const updateSpeedDialItem = (item) => {
-    window.confirm(
-      `Do you want to UPDATE this speed dial item: ${item.sdCode}?`,
-    )
+    window.confirm(`Do you want to UPDATE this speed dial item: ${item.sdCode}?`)
       ? addSpeedDialItem(item) && resetDialInput()
       : resetDialInput()
   }
@@ -152,10 +150,7 @@ export const PhoneProvider = ({ children }) => {
     )
   }
   const processSpeedDial = (str) => {
-    if (
-      (isSingleDigitCodeId(str) || isDoubleDigitCodeId(str)) &&
-      isEditCode(str)
-    ) {
+    if ((isSingleDigitCodeId(str) || isDoubleDigitCodeId(str)) && isEditCode(str)) {
       const item = generateSdItem(str)
       const arr = speedDial.filter((sd) => sd.sdCode === item.sdCode)
 

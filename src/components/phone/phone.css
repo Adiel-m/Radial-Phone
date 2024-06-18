@@ -8,11 +8,7 @@
   --socket-width: calc(var(--socket-size) * 1.75);
   --dial-rotate: 0deg;
   --dial-grad-color-pos: calc(var(--socket-size) * 5);
-  --fs-dial: clamp(
-    calc(var(--dial-width) * 1.5),
-    3vw,
-    calc(var(--dial-width) * 2.5)
-  );
+  --fs-dial: clamp(calc(var(--dial-width) * 1.5), 3vw, calc(var(--dial-width) * 2.5));
 }
 
 .btn {
@@ -123,10 +119,7 @@
     border-radius: var(--border-radius--round);
     font-size: var(--fs-dial);
     offset-path: circle(
-      calc(
-        var(--path-width) - (var(--socket-width) / 2) -
-          (var(--socket-width) / 5)
-      )
+      calc(var(--path-width) - (var(--socket-width) / 2) - (var(--socket-width) / 5))
     );
     offset-distance: var(--socket-offset-dist);
     offset-rotate: calc(

@@ -7,20 +7,12 @@ export default function Phone() {
   const socketSpacer = 3 // space between the first and last socket (equal to socket size)
   const dialOffsetDist = 28 // if is set to less then 28 (will generate BUG in counter clockwise rotation)
 
-  const {
-    dialInput,
-    handleMouseDown,
-    handleMouseUp,
-    handleMouseLeave,
-    handleMouseMove,
-  } = useContext(PhoneContext)
+  const { dialInput, handleMouseDown, handleMouseUp, handleMouseLeave, handleMouseMove } =
+    useContext(PhoneContext)
 
   return (
     <div className="phone--content">
-      <img
-        src="./top-view-retro-telephone-small 1.jpg"
-        className="phone--img"
-      ></img>
+      <img src="./top-view-retro-telephone-small 1.jpg" className="phone--img"></img>
       <a
         id="call"
         className="call--number-display"
@@ -70,10 +62,7 @@ export default function Phone() {
                 <feGaussianBlur stdDeviation="1" />
                 <feComposite in2="hardAlpha" operator="out" />
                 <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.68 0" />
-                <feBlend
-                  in2="BackgroundImageFix"
-                  result="effect1_dropShadow_85_4"
-                />
+                <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_85_4" />
                 <feColorMatrix
                   in="SourceAlpha"
                   result="hardAlpha"
@@ -82,10 +71,7 @@ export default function Phone() {
                 <feOffset dx="1" dy="2" />
                 <feComposite in2="hardAlpha" operator="out" />
                 <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.16 0" />
-                <feBlend
-                  in2="effect1_dropShadow_85_4"
-                  result="effect2_dropShadow_85_4"
-                />
+                <feBlend in2="effect1_dropShadow_85_4" result="effect2_dropShadow_85_4" />
                 <feBlend
                   in="SourceGraphic"
                   in2="effect2_dropShadow_85_4"
@@ -98,12 +84,7 @@ export default function Phone() {
                 />
                 <feOffset />
                 <feGaussianBlur stdDeviation="2" />
-                <feComposite
-                  in2="hardAlpha"
-                  k2="-1"
-                  k3="1"
-                  operator="arithmetic"
-                />
+                <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
                 <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.58 0" />
                 <feBlend in2="shape" result="effect3_innerShadow_85_4" />
                 <feColorMatrix
@@ -113,12 +94,7 @@ export default function Phone() {
                 />
                 <feOffset />
                 <feGaussianBlur stdDeviation="12" />
-                <feComposite
-                  in2="hardAlpha"
-                  k2="-1"
-                  k3="1"
-                  operator="arithmetic"
-                />
+                <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
                 <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.13 0" />
                 <feBlend
                   in2="effect3_innerShadow_85_4"
@@ -131,12 +107,7 @@ export default function Phone() {
                 />
                 <feOffset dx="2" dy="2" />
                 <feGaussianBlur stdDeviation="2" />
-                <feComposite
-                  in2="hardAlpha"
-                  k2="-1"
-                  k3="1"
-                  operator="arithmetic"
-                />
+                <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic" />
                 <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.62 0" />
                 <feBlend
                   in2="effect4_innerShadow_85_4"
