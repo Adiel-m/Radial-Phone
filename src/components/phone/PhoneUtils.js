@@ -1,13 +1,13 @@
 import {
   codeId,
-  LDNumberL,
+  LDNL,
   d,
   dn,
   dndl,
   doubleDigitTotalL,
-  editCodeL,
-  longDistNumL,
-  phoneNumL,
+  CIdEL,
+  CIdLDNL,
+  PNL,
   s,
   singleDigitTotalL,
   sn,
@@ -15,7 +15,7 @@ import {
 } from './phoneVariables'
 
 // Generate Speed Dial Item
-export const generateSdItem = (str) => {
+export const createSdItem = (str) => {
   const item = {
     type: sdCodeType(str) || undefined,
     sdCode: sdCodeNum(str) || undefined,
@@ -59,15 +59,15 @@ const sdCountryCode = (str) => {
 const sdFullNumber = (str) => {
   if (islongDistanceCodeId(str)) {
     return (
-      (isSingleDigitCodeId(str) && replaceLongDistanceChar(str.slice(sn, -editCodeL))) ||
-      (isDoubleDigitCodeId(str) && replaceLongDistanceChar(str.slice(dn, -editCodeL)))
+      (isSingleDigitCodeId(str) && replaceLongDistanceChar(str.slice(sn, -CIdEL))) ||
+      (isDoubleDigitCodeId(str) && replaceLongDistanceChar(str.slice(dn, -CIdEL)))
     )
   }
 
   if (!islongDistanceCodeId(str)) {
     return (
-      (isSingleDigitCodeId(str) && str.slice(sn, -editCodeL)) ||
-      (isDoubleDigitCodeId(str) && str.slice(dn, -editCodeL))
+      (isSingleDigitCodeId(str) && str.slice(sn, -CIdEL)) ||
+      (isDoubleDigitCodeId(str) && str.slice(dn, -CIdEL))
     )
   }
 }
@@ -79,25 +79,25 @@ const verifySdPhoneNum = (str) => {
 
 const sdPhoneNum = (str) => {
   const num = sdFullNumber(str)
-  return isPhoneNum(num) ? num.slice(-phoneNumL) : num
+  return isPhoneNum(num) ? num.slice(-PNL) : num
 }
 
 const sdAreaCode = (str) => {
   const num = sdFullNumber(str)
-  const end = num.length - phoneNumL
+  const end = num.length - PNL
 
   return islongDistanceCodeId(str)
-    ? isPhoneNum(num) && num.slice(longDistNumL + LDNumberL, end)
+    ? isPhoneNum(num) && num.slice(CIdLDNL + LDNL, end)
     : isPhoneNum(num) && num.slice(0, end)
 }
 
 // Process Helpers
 export const verifySdItemDelete = (str) => {
   if (isSingleDigitCodeId(str)) {
-    return sn + editCodeL === str.length
+    return sn + CIdEL === str.length
   }
   if (isDoubleDigitCodeId(str)) {
-    return dn + editCodeL === str.length
+    return dn + CIdEL === str.length
   }
   return false
 }
@@ -110,15 +110,11 @@ export const islongDistanceCodeId = (str) => {
   }
   // validate for single digit edit
   if (str.length >= singleDigitTotalL && isSingleDigitCodeId(str)) {
-    return (
-      str.slice(sn, sn + longDistNumL) === (codeId.longDistNum || codeId.longDistChar)
-    )
+    return str.slice(sn, sn + CIdLDNL) === (codeId.longDistNum || codeId.longDistChar)
   }
   // validate for double digit edit
   if (str.length >= doubleDigitTotalL && isDoubleDigitCodeId(str)) {
-    return (
-      str.slice(dn, dn + longDistNumL) === (codeId.longDistNum || codeId.longDistChar)
-    )
+    return str.slice(dn, dn + CIdLDNL) === (codeId.longDistNum || codeId.longDistChar)
   }
   return false
 }
@@ -167,7 +163,7 @@ export const isSpeedDialNumber = (str) => {
 }
 
 export const isEditCode = (str) => {
-  return str.slice(-editCodeL) === codeId.edit
+  return str.slice(-CIdEL) === codeId.edit
 }
 
 // helpers

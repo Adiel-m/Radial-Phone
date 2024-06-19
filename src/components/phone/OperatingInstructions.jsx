@@ -1,11 +1,11 @@
 export default function OperatingInstructions() {
-  const handleclick = (e) => {
+  const handleClick = (e) => {
     const el = e.target.parentElement
     el.style.insetInlineEnd = '-100%'
   }
 
   return (
-    <article className="info">
+    <article className="instructions">
       <header>
         <h2>Operating Instructions</h2>
         <p>
@@ -14,7 +14,7 @@ export default function OperatingInstructions() {
           up to 30 numbers.
         </p>
       </header>
-      <div className="info--details">
+      <div className="content">
         <details>
           <summary>
             <h3>Speed Calling 8 list</h3>
@@ -167,7 +167,7 @@ export default function OperatingInstructions() {
           </ul>
         </details>
       </div>
-      <button className="btn--round rotate" onClick={handleclick}>
+      <button className="btn--round rotate" onClick={handleClick}>
         ⨉
       </button>
     </article>

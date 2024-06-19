@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import PhoneContext from '@/context/PhoneContext'
+import PhoneContext from './PhoneContext'
 
 export default function Phone() {
   const sockets = ['#', '*', 0, 9, 8, 7, 6, 5, 4, 3, 2, 1]
@@ -11,28 +11,23 @@ export default function Phone() {
     useContext(PhoneContext)
 
   return (
-    <div className="phone--content">
-      <img src="./top-view-retro-telephone-small 1.jpg" className="phone--img"></img>
-      <a
-        id="call"
-        className="call--number-display"
-        tabIndex="-1"
-        href={`tel:${dialInput}`}
-      >
+    <div className="phone">
+      <img src="phone-image-square.jpg"></img>
+      <a id="call" className="number-display" tabIndex="-1" href={`tel:${dialInput}`}>
         {dialInput}
       </a>
       <div className="dial">
-        <div className="dial--bg">
+        <div>
           <svg
             width="100%"
             height="100%"
-            foucusable="false"
+            focusable="false"
             fill="none"
             version="1.1"
             viewBox="0 0 257 259"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g transform="translate(3,3)" filter="url(#filter0_ddiii_85_4)">
+            <g transform="translate(3,3)" filter="url(#filter01)">
               <path
                 d="m125 250c69.036 0 125-55.964 125-125 0-69.036-55.964-125-125-125-69.036 0-125 55.964-125 125 0 69.036 55.964 125 125 125zm0-45c44.183 0 80-35.817 80-80 0-44.183-35.817-80-80-80-44.183 0-80 35.817-80 80 0 44.183 35.817 80 80 80z"
                 clipRule="evenodd"
@@ -44,7 +39,7 @@ export default function Phone() {
             </g>
             <defs>
               <filter
-                id="filter0_ddiii_85_4"
+                id="filter01"
                 x="0"
                 y="0"
                 width="254"
@@ -118,7 +113,7 @@ export default function Phone() {
           </svg>
           {sockets.map((socket, i) => (
             <div
-              className="dial--socket"
+              className="socket"
               key={i + 1}
               style={{
                 '--socket-offset-dist': `${
@@ -131,7 +126,7 @@ export default function Phone() {
           ))}
         </div>
         <div
-          className="dial--controller"
+          className="dial--ctrl"
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
         >
@@ -139,7 +134,7 @@ export default function Phone() {
             <button
               onMouseLeave={handleMouseLeave}
               onMouseMove={handleMouseMove}
-              className="dial--controller-socket"
+              className="ctrl-socket"
               key={i + 1}
               value={socket}
               style={{

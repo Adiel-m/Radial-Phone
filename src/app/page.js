@@ -1,5 +1,5 @@
 import RotaryPhone from '@/components/phone/RotaryPhone'
-import '../components/phone/phone.css'
+import '../components/phone/rotary-phone.css'
 
 export default function Home() {
   return (

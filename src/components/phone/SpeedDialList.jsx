@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import PhoneContext from '@/context/PhoneContext'
+import PhoneContext from './PhoneContext'
 
 import SpeedDialItem from './SpeedDialItem'
 
@@ -11,7 +11,7 @@ export default function SpeedDialList() {
   newSpeedDial.sort((a, b) => a.sdCode - b.sdCode)
 
   return (
-    <ul className="speed-dialer--list">
+    <ul className="list">
       {newSpeedDial.map((item) => (
         <SpeedDialItem item={item} key={item.sdCode} />
       ))}

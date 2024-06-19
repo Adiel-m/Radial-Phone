@@ -3,13 +3,13 @@ import OperatingInstructions from './OperatingInstructions'
 
 export default function SpeedDialer() {
   const handleClick = (e) => {
-    const el = document.querySelector('.info')
+    const el = document.querySelector('.instructions')
     console.log(el)
     el.style.insetInlineEnd = '0'
   }
 
   return (
-    <div className="speed-dialer">
+    <div className="speed-dial">
       <header className="row">
         <h2>Speed Dial</h2>
         <button className="btn--round" onClick={handleClick}>

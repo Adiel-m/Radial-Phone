@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import PhoneContext from '@/context/PhoneContext'
+import PhoneContext from './PhoneContext'
 
 import { isNum, replaceLongDistanceChar } from './PhoneUtils'
 
@@ -30,13 +30,12 @@ export default function SpeedDialItem({ item }) {
   }
 
   return (
-    <li className="speed-dialer--item">
-      <div className="speed-dialer--sdCode">{item.sdCode}</div>
-      <div className="details">
-        <h3 className="speed-dialer--name">
+    <li className="item">
+      <div className="code-number">{item.sdCode}</div>
+      <div>
+        <h3>
           {isEdit ? (
             <input
-              className="speed-dialer--name"
               type="text"
               name="name"
               value={newItem.name}
@@ -46,10 +45,9 @@ export default function SpeedDialItem({ item }) {
             `${item.name}:`
           )}
         </h3>
-        <p className="speed-dialer--phone">
+        <p>
           {isEdit ? (
             <input
-              className="speed-dialer--phone"
               type="text"
               name="phone"
               value={replaceLongDistanceChar(newItem.fullPhoneNum)}

@@ -1,5 +1,5 @@
 export const resetRotation = () => {
-  const dial = document.querySelector('.dial--controller')
+  const dial = document.querySelector('.dial--ctrl')
 
   return (
     // rotate back to default position
@@ -7,10 +7,10 @@ export const resetRotation = () => {
   )
 }
 export const rotateDial = (e, deg) => {
-  return (e.currentTarget.closest('.dial--controller').style = `--dial-rotate: ${deg}deg`)
+  return (e.currentTarget.closest('.dial--ctrl').style = `--dial-rotate: ${deg}deg`)
 }
 export const calcRotationAngle = (e) => {
-  const obj = document.querySelector('.dial--controller').getBoundingClientRect()
+  const obj = document.querySelector('.dial--ctrl').getBoundingClientRect()
   const x = e.clientX - (obj.x + obj.width / 2)
   const y = obj.y + obj.height / 2 - e.clientY
 
